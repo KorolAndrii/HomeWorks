@@ -1,13 +1,23 @@
 package com.korol.homeworks.homework1.multiplication;
 
 import java.math.BigInteger;
-import java.util.Arrays;
+
 
 /**
  * Created by Somebody on 04.02.2017.
  */
-public class FastMultiplicator {
+public final class FastMultiplicator {
+    private FastMultiplicator() {
+        // not called
+    }
+
+    /**
+     * @param i - first number
+     * @param j - second number
+     * @return multiplication
+     */
     public static BigInteger kara(BigInteger i, BigInteger j) {
+
         int n = Math.max(i.bitLength(), j.bitLength());
         if(n <= 5) {
             return i.multiply(j);
@@ -29,3 +39,4 @@ public class FastMultiplicator {
         }
     }
 }
+

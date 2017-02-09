@@ -3,7 +3,10 @@ package com.korol.homeworks.homework1.bitwise;
 /**
  * Created by Somebody on 04.02.2017.
  */
-public class BitsCounter {
+public final class BitsCounter {
+    private BitsCounter() {
+        // not called
+    }
 
     public static int byteLength() {
         byte num = 1;
