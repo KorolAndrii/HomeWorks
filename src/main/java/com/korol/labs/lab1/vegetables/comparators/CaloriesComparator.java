@@ -7,7 +7,20 @@ import java.util.Comparator;
 /**
  * Created by Somebody on 05.02.2017.
  */
-public class CaloriesComparator implements Comparator<Vegetable> {
+public final class CaloriesComparator implements Comparator<Vegetable> {
+    private static CaloriesComparator caloriesComparator;
+
+    private CaloriesComparator() {
+
+    }
+
+    public static CaloriesComparator getInstance() {
+        if (caloriesComparator == null) {
+            caloriesComparator = new CaloriesComparator();
+        }
+        return  caloriesComparator;
+    }
+
     @Override
     public int compare(Vegetable vegetable1, Vegetable vegetable2) {
         Float calories1 = vegetable1.getCalories();

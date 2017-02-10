@@ -1,6 +1,7 @@
 package com.korol.labs.lab1.vegetables.impl;
 
 import com.korol.labs.lab1.vegetables.Solanaceaes;
+import com.korol.labs.lab1.vegetables.SupplierCountry;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -8,27 +9,32 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  * Created by Somebody on 05.02.2017.
  */
 public class Tomato extends Solanaceaes {
-    private boolean color;
+    private TomatoColor color;
 
-    public boolean isColor() {
-        return color;
+    public Tomato() {
     }
 
-    public void setColor(boolean color) {
+    public Tomato(float calories) {
+        super(calories);
+    }
+
+    public Tomato(String name, float calories, SupplierCountry supplierCountry, float diameter, TomatoColor color) {
+        super(name, calories, supplierCountry, diameter);
         this.color = color;
     }
 
-    public String whatColor() {
-        if (color) {
-            return "Red";
-        } else {
-            return "Yellow";
-        }
+    public TomatoColor getColor() {
+        return color;
+    }
+
+    public void setColor(TomatoColor color) {
+        this.color = color;
     }
 
     @Override
     public String toString() {
-        return Tomato.class.getSimpleName() + " name: " + this.getName() + " calories: " + this.getCalories();
+        return Tomato.class.getSimpleName() + " name: " + this.getName() + " calories: " + this.getCalories()
+                + " country: " + this.getCountry() + "(" + this.getCountry().getRating() + ")" + "\n";
     }
 
     @Override

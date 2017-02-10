@@ -1,6 +1,7 @@
 package com.korol.labs.lab1.vegetables.impl;
 
 import com.korol.labs.lab1.vegetables.Roots;
+import com.korol.labs.lab1.vegetables.SupplierCountry;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -10,12 +11,23 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 public  class Beet extends Roots {
     private boolean sweet;
 
+    /**
+     *
+     */
+    public Beet() {
+    }
+
+    public Beet(float calories) {
+        super(calories);
+    }
+
+    public Beet(String name, float calories, SupplierCountry supplierCountry, float rootLength, boolean sweet) {
+        super(name, calories, supplierCountry, rootLength);
+        this.sweet = sweet;
+    }
+
     public boolean isSweet() {
-        if (sweet) {
-            return true;
-        } else {
-            return false;
-        }
+        return sweet;
     }
 
     public void setSweet(boolean sweet) {
@@ -24,7 +36,8 @@ public  class Beet extends Roots {
 
     @Override
     public String toString() {
-        return Beet.class.getSimpleName() + " name: " + this.getName() + " calories: " + this.getCalories();
+        return Beet.class.getSimpleName() + " name: " + this.getName() + " calories: " + this.getCalories()
+                + " country: " + this.getCountry() + "(" + this.getCountry().getRating() + ")" + "\n";
     }
 
     @Override
@@ -40,6 +53,7 @@ public  class Beet extends Roots {
                 .append(this.getName(), beet.getName())
                 .append(this.getCalories(), beet.getCalories())
                 .append(this.getCountry(), beet.getCountry())
+                .append(this.getRootLength(), beet.getRootLength())
                 .isEquals();
     }
 
@@ -50,6 +64,7 @@ public  class Beet extends Roots {
                 .append(this.getCalories())
                 .append(this.getName())
                 .append(this.getCountry())
+                .append(this.getRootLength())
                 .toHashCode();
     }
 }

@@ -1,7 +1,6 @@
 package com.korol.labs.lab1.vegetables;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 
 /**
  * Created by Somebody on 08.02.2017.
@@ -11,6 +10,19 @@ public abstract class Vegetable {
     private float calories;
     private SupplierCountry supplierCountry;
 
+    public Vegetable() {
+
+    }
+
+    public Vegetable(float calories) {
+        this.calories = calories;
+    }
+
+    public Vegetable(String name, float calories, SupplierCountry supplierCountry) {
+        this.name = name;
+        this.calories = calories;
+        this.supplierCountry = supplierCountry;
+    }
 
     public String getName() {
         return name;
@@ -29,27 +41,21 @@ public abstract class Vegetable {
         this.calories = calories;
     }
 
-    public SupplierCountry getSupplierCountry() {
+    public SupplierCountry getCountry() {
         return supplierCountry;
     }
 
-    public void setSupplierCountry(SupplierCountry supplierCountry) {
-        this.supplierCountry = supplierCountry;
-    }
-
-    public SupplierCountry getCountry() {
-        return country;
-    }
-
     public void setCountry(SupplierCountry country) {
-        this.country = country;
+        this.supplierCountry = country;
     }
 
+    @Override
     public abstract boolean equals(Object o);
 
+    @Override
     public abstract int hashCode();
 
+    @Override
     public abstract String toString();
 
-    private SupplierCountry country;
 }
