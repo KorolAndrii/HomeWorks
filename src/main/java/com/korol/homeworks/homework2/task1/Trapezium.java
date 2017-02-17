@@ -1,4 +1,4 @@
-package com.korol.homeworks.homework2.task1.shapes;
+package com.korol.homeworks.homework2.task1;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -6,18 +6,18 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 /**
  * Created by Somebody on 12.02.2017.
  */
-public class Trapezium extends Shape {
-    private int a;
-    private int b;
+public class Trapezium extends Polygon {
+    private double a;
+    private double b;
 
-    public Trapezium(int a, int b, int height) {
+    public Trapezium(double a, double b, double height) {
         this.a = a;
         this.b = b;
         this.height = height;
         this.square = 0.5 *(a + b) * height;
     }
 
-    public int getA() {
+    public double getA() {
         return a;
     }
 
@@ -25,7 +25,7 @@ public class Trapezium extends Shape {
         this.a = a;
     }
 
-    public int getB() {
+    public double getB() {
         return b;
     }
 
@@ -36,7 +36,7 @@ public class Trapezium extends Shape {
     @Override
     public String toString() {
         return Shape.class.getSimpleName() + "a =" + a + ", b =" + b +
-                " , height =" + getHeight() + ", square =" + getSquare();
+                ", height =" + getHeight() + ", square =" + getSquare();
     }
 
     @Override

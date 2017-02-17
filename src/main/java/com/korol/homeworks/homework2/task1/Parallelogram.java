@@ -1,4 +1,4 @@
-package com.korol.homeworks.homework2.task1.shapes;
+package com.korol.homeworks.homework2.task1;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -6,7 +6,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 /**
  * Created by Somebody on 12.02.2017.
  */
-public class Parallelogram extends Shape {
+public class Parallelogram extends Polygon {
     private double a;
     private double b;
     private double angle1;
@@ -65,7 +65,7 @@ public class Parallelogram extends Shape {
     @Override
     public String toString() {
         return Shape.class.getSimpleName() + "a =" + a + ", b =" + b +
-                " , height =" + getHeight() + ", square =" + getSquare();
+                ", height =" + getHeight() + ", square =" + getSquare();
     }
 
     @Override

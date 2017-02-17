@@ -1,4 +1,4 @@
-package com.korol.homeworks.homework2.task1.shapes;
+package com.korol.homeworks.homework2.task1;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -6,7 +6,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 /**
  * Created by Somebody on 12.02.2017.
  */
-public class Triangle extends Shape{
+public class Triangle extends Polygon {
     private double baseSide;
     private double secondSide;
     private double thirdSide;
@@ -17,9 +17,9 @@ public class Triangle extends Shape{
 
     public Triangle(double baseSide, double secondSide, double thirdSide) throws IllegalArgumentException {
         if (baseSide + secondSide < thirdSide || baseSide + thirdSide < secondSide ||
-                thirdSide + secondSide < baseSide ) {
+                thirdSide + secondSide < baseSide) {
             throw new IllegalArgumentException();
-        }  else {
+        } else {
             this.baseSide = baseSide;
             this.secondSide = secondSide;
             this.thirdSide = thirdSide;
@@ -38,13 +38,6 @@ public class Triangle extends Shape{
         temp = Math.PI / 2 - alpha;
         height = Math.cos(temp) * secondSide;
         square = 0.5 * height * baseSide;
-    }
-
-
-    @Override
-    public String toString() {
-        return Shape.class.getSimpleName() + "baseSide =" + baseSide + ", secondSide =" + secondSide +
-                ", thirdSide =" + thirdSide + " , height =" + getHeight() + ", square =" + getSquare();
     }
 
     @Override
@@ -76,4 +69,11 @@ public class Triangle extends Shape{
                 .append(gama)
                 .toHashCode();
     }
+
+    @Override
+    public String toString() {
+        return Shape.class.getSimpleName() + "baseSide =" + baseSide + ", secondSide =" + secondSide +
+                ", thirdSide =" + thirdSide + ", height =" + getHeight() + ", square =" + getSquare();
+    }
 }
+

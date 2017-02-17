@@ -1,28 +1,20 @@
-package com.korol.homeworks.homework2.task1.shapes;
-
-import java.util.List;
+package com.korol.homeworks.homework2.task1;
 
 /**
  * Created by Somebody on 12.02.2017.
  */
 public abstract class Shape {
-    protected double height;
     protected double square;
 
-    public static double toRadians(double degree) {
+    public static double toRadians(double degree) throws IllegalArgumentException {
+        if (degree < 0.0 || degree > 360.0) {
+            throw new IllegalArgumentException();
+        }
         return degree * Math.PI / 180;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
     }
 
     public void setSquare(double square) {
         this.square = square;
-    }
-
-    public double getHeight() {
-        return height;
     }
 
     public double getSquare() {
