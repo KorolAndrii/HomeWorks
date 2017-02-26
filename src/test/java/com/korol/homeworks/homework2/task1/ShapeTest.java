@@ -18,10 +18,10 @@ public class ShapeTest {
 
     @Before
     public void setUp() {
-        circle = new Circle(5);
-        triangle = new Triangle(5, 5, 7);
-        parallelogram = new Parallelogram(10, 10, 35);
-        trapezium = new Trapezium(5, 4, 10);
+        circle = Circle.getCircle(5);
+        triangle = Triangle.getTriangle(5, 5, 7);
+        parallelogram = Parallelogram.getParallelogram(10, 10, 35);
+        trapezium = Trapezium.getTrapezium(5, 4, 10);
         circleAndTriangleSquare = circle.getSquare() + triangle.getSquare();
     }
 
@@ -44,5 +44,4 @@ public class ShapeTest {
     public void squareSum() throws Exception {
         Assert.assertEquals(circleAndTriangleSquare, circle.squareSum(triangle), 3);
     }
-
 }

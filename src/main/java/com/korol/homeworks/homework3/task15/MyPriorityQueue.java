@@ -1,9 +1,5 @@
 package com.korol.homeworks.homework3.task15;
 
-import com.korol.labs.lab1.vegetables.Vegetable;
-import com.korol.labs.lab1.vegetables.comparators.CaloriesComparator;
-import com.korol.labs.lab1.vegetables.impl.Tomato;
-
 import java.util.*;
 
 
@@ -143,31 +139,4 @@ public class MyPriorityQueue<E> {
             else  throw new NoSuchElementException();
         }
     }
-
-    public static void main(String[] args) {
-        MyPriorityQueue<Vegetable> queue = new MyPriorityQueue<>(10, CaloriesComparator.getInstance());
-        queue.offer(new Tomato(5.0f));
-        queue.offer(new Tomato(1.0f));
-        queue.offer(new Tomato(5.5f));
-        queue.offer(new Tomato(5.9f));
-        queue.offer(new Tomato(7.0f));
-        queue.offer(new Tomato(0.3f));
-        queue.poll();
-        System.out.println(queue.peek());
-        Iterator iterator = queue.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
-        System.out.println();
-        System.out.println(queue.peek());
-        System.out.println();
-        queue.poll();
-        Iterator iterator22 = queue.iterator();
-        while (iterator22.hasNext()) {
-            System.out.println(iterator22.next());
-        }
-
-
-    }
-
 }

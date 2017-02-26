@@ -6,7 +6,7 @@ package com.korol.homeworks.homework3.task11;
 public class A {
     int value;
 
-    public A(int value) {
+    public A() {
         this.value = value;
     }
 

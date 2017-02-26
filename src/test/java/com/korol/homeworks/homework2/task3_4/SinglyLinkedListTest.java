@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 
 import static org.junit.Assert.*;
@@ -13,6 +14,7 @@ import static org.junit.Assert.*;
  */
 public class SinglyLinkedListTest {
     private SinglyLinkedList<Integer> list;
+
 
     @Before
     public void setUP() {
@@ -62,4 +64,15 @@ public class SinglyLinkedListTest {
     public void wrongGetIndex() {
         list.remove(21);
     }
+
+    @Test(expected = ConcurrentModificationException.class)
+    public void cme() {
+        Iterator<Integer> iterator = list.iterator();
+        int i = 0;
+        while (iterator.hasNext()) {
+            list.add(1);
+            iterator.next();
+        }
+    }
+
 }

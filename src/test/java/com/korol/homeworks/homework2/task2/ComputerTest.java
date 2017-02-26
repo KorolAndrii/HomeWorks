@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.IllegalFormatException;
+
 import static org.junit.Assert.*;
 
 /**
@@ -44,4 +46,14 @@ public class ComputerTest {
         assertEquals(1500000000, computer.hddCapacity());
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void negativeCapacity() {
+        OperativeMemory ram = OperativeMemory.getRAM(-10);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void negativeCapacity2() {
+        HardDriveDisk ram = HardDriveDisk.getHDD(-10);
 }
+    }
+
