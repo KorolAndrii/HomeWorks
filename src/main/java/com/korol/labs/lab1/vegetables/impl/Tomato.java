@@ -31,10 +31,15 @@ public class Tomato extends Solanaceaes {
         this.color = color;
     }
 
-    @Override
+   /* @Override
     public String toString() {
         return Tomato.class.getSimpleName() + " name: " + this.getName() + " calories: " + this.getCalories()
                 + " country: " + this.getCountry() + "(" + this.getCountry().getRating() + ")" + "\n";
+    }*/
+
+    @Override
+    public String toString() {
+        return Tomato.class.getSimpleName() + " calories: " + this.getCalories() + "\n";
     }
 
     @Override
@@ -46,20 +51,14 @@ public class Tomato extends Solanaceaes {
         Tomato tomato = (Tomato) o;
 
         return new EqualsBuilder()
-                .append(color, tomato.color)
-                .append(this.getName(), tomato.getName())
                 .append(this.getCalories(), tomato.getCalories())
-                .append(this.getCountry(), tomato.getCountry())
                 .isEquals();
     }
 
     @Override
     public int hashCode() {
         return new HashCodeBuilder(17, 37)
-                .append(color)
                 .append(this.getCalories())
-                .append(this.getName())
-                .append(this.getCountry())
                 .toHashCode();
     }
 }

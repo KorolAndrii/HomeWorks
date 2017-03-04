@@ -4,7 +4,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by Somebody on 26.02.2017.
@@ -12,11 +14,13 @@ import static org.junit.Assert.*;
 public class FactoryTest {
     private Factory factory;
     private int limit;
+    private List<A> listA;
 
     @Before
     public void setUp() {
         limit = 10;
         factory = Factory.getFactory(limit);
+        listA = new ArrayList<>();
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -27,9 +31,10 @@ public class FactoryTest {
     @Test
     public void createObjects() throws Exception {
         for (int i = 0; i < 15; i++) {
-            factory.createObjects();
+            factory.createObject();
+            System.out.println(factory.getCount());
         }
-        Assert.assertEquals(10, factory.getCount());
+        Assert.assertTrue(factory.getReferenceQueueLength(factory) <= limit);
     }
 
 }
